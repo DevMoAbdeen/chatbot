@@ -1,0 +1,54 @@
+name: chatbot
+description: "A simple and clean Flutter chatbot application using Gemini API for AI responses."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.10.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  # Bloc for state management
+  flutter_bloc: ^9.1.1
+
+  # Shared Preference (Local data storage)
+  shared_preferences: ^2.5.4
+
+  # Service locator, dependency injection
+  get_it: ^9.2.0
+
+  # Functional Programming
+  dartz: ^0.10.1
+
+  # To check Network in mobile
+  internet_connection_checker: ^3.0.1
+
+  # Remote API, to post, put, delete and get data From API
+  dio: ^5.9.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+
+flutter:
+
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section
+  assets:
+    - assets/icons/
+    - assets/fonts/
+    - assets/env/
+
+  fonts:
+    - family: Nunito
+      fonts:
+        - asset: assets/fonts/Nunito-VariableFont.ttf
+
