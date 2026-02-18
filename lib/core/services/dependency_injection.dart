@@ -16,7 +16,6 @@ import "../networking/internet/internet_connection_checker.dart";
 import "../networking/internet/internet_controller.dart";
 import "../observer/bloc_observer.dart";
 import "environment_controller.dart";
-import "onboarding_local_storage.dart";
 
 GetIt getIt = GetIt.instance;
 
@@ -31,7 +30,6 @@ Future<void> setupServiceLocator() async {
   getIt.registerLazySingleton<InternetController>(() => InternetConnectionCheckerController());
   getIt.registerLazySingleton<Dio>(() => Dio());
   getIt.registerLazySingleton<ApiController>(() => DioController(dio: getIt(), environment: getIt()));
-  getIt.registerLazySingleton(() => OnboardingLocalStorage(localStorage: getIt()));
 
   /// /////////////////////////////////////////////////////////////////// ///
 
@@ -47,11 +45,11 @@ Future<void> setupServiceLocator() async {
 
   /// Features (Splash)
   // Cubits //
-  getIt.registerFactory(() => SplashCubit(onboardingStorage: getIt())..start());
+  getIt.registerFactory(() => SplashCubit(localStorage: getIt())..start());
 
   /// Features (Onboarding)
   // Cubits //
-  getIt.registerFactory(() => OnboardingCubit(onboardingStorage: getIt()));
+  getIt.registerFactory(() => OnboardingCubit(localStorage: getIt()));
 
   /// Features (Chat)
   // Cubits //
